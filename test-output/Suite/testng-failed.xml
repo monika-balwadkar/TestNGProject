@@ -5,16 +5,10 @@
     <classes>
       <class name="MavenProjectPckg.Selenium_Maven_Project.LoginTestCase">
         <methods>
-          <include name="launchUrl"/>
           <include name="verifyLogin"/>
+          <include name="launchUrl"/>
         </methods>
       </class> <!-- MavenProjectPckg.Selenium_Maven_Project.LoginTestCase -->
-      <class name="MavenProjectPckg.Selenium_Maven_Project.TryForFreeTestCase">
-        <methods>
-          <include name="launchUrl"/>
-          <include name="verifyTryForFree"/>
-        </methods>
-      </class> <!-- MavenProjectPckg.Selenium_Maven_Project.TryForFreeTestCase -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

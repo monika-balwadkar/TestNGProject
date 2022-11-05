@@ -5,8 +5,8 @@
     <classes>
       <class name="MavenProjectPckg.Selenium_Maven_Project.LoginTestCase">
         <methods>
-          <include name="launchUrl"/>
           <include name="verifyLogin"/>
+          <include name="launchUrl"/>
         </methods>
       </class> <!-- MavenProjectPckg.Selenium_Maven_Project.LoginTestCase -->
     </classes>

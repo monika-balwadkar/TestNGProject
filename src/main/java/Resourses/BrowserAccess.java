@@ -1,4 +1,4 @@
-package MavenProjectPckg.Selenium_Maven_Project;
+package Resourses;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,7 +17,7 @@ public class BrowserAccess {
 	public Properties prop;
 	public void intializeDriver() throws IOException
 	{
-		FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\data.properties");
+		FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\Resourses\\data.properties");
 		prop=new Properties();
 		prop.load(fis);
 		String BrowserName=prop.getProperty("browser");
@@ -28,13 +28,11 @@ public class BrowserAccess {
 			//WebDriverManager.chromedriver().browserVersion("79.0.9").setup();
 			WebDriverManager.chromedriver().setup();  //for latest version
 			driver=new ChromeDriver();
-			
-		}
+			}
 		else
 		{
 			System.out.println("Browser not accessible");
 		}
-	
 	}
 	@BeforeMethod
 	public void launchUrl() throws IOException

@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import PageObjectModel.TryForFreePageObject;
+import Resourses.BrowserAccess;
+import Resourses.CommonUtilities;
+import Resourses.Constant;
 
 public class TryForFreeTestCase extends BrowserAccess {
 
@@ -18,25 +21,23 @@ public class TryForFreeTestCase extends BrowserAccess {
 		TryForFreePageObject TPO= new TryForFreePageObject(driver);
 		TPO.tryForFreeClick().click();
 		Thread.sleep(2000);
-		TPO.firstNameEnter().sendKeys("Kiyaan");
-		TPO.lasteNameEnter().sendKeys("Khalde");
-		TPO.jobTitleEnter().sendKeys("Developer");
-		TPO.emailEnter().sendKeys("Kiyaan12@gmai.com");
-		TPO.phoneEnter().sendKeys("9028819090");
+		TPO.firstNameEnter().sendKeys(Constant.firstname);
+		TPO.lasteNameEnter().sendKeys(Constant.lastname);
+		TPO.jobTitleEnter().sendKeys(Constant.jobtitle);
+		TPO.emailEnter().sendKeys(Constant.email);
+		TPO.phoneEnter().sendKeys(Constant.phoneNo);
 		
-		WebElement emp=TPO.employeeSelected();  //Dropdown Employee
-		Select s=new Select(emp);
-		s.selectByIndex(3);
+		//Dropdown Employee
+		CommonUtilities.handleDropDown(TPO.employeeSelected(),3);
 		
-		TPO.companyNameEnter().sendKeys("Infosys");
+		TPO.companyNameEnter().sendKeys(Constant.compantName);
 		
-		WebElement countryNm=TPO.companyCountrySelected(); //DropDown for Company Country
-		Select s1= new Select(countryNm);
-		s1.selectByVisibleText("Greece");
+		//DropDown Country
+		CommonUtilities.handleDropDown(TPO.companyCountrySelected(),4);
 		
 		TPO.iAgreeChecked().click();
-		Thread.sleep(2000);
-		TPO.yesIWouldChecked().click();
+		//Thread.sleep(2000);
+		//TPO.yesIWouldChecked().click();
 		
 	}
 }

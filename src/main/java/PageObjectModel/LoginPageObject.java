@@ -9,8 +9,8 @@ public class LoginPageObject {
 	public WebDriver driver;
 
 		By username= By.xpath("//input[@id='username']");
-		By password=By.xpath("//input[@id='password']");
-		By login=By.xpath("//input[@id='Login']");
+		public By password=By.xpath("//input[@id='password']"); //make it public if you want to explicit wait by element
+		public By login=By.xpath("//input[@id='Login']");
 		By actual= By.xpath("(//div[@class='loginError'])[2]");
 		
 		public LoginPageObject(WebDriver driver2) {

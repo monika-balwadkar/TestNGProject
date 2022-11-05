@@ -7,6 +7,9 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import PageObjectModel.LoginPageObject;
+import Resourses.BrowserAccess;
+import Resourses.CommonUtilities;
+import Resourses.Constant;
 
 public class LoginTestCase extends BrowserAccess {
 
@@ -14,17 +17,19 @@ public class LoginTestCase extends BrowserAccess {
 	public void verifyLogin() throws IOException
 	{
 		
-		
+	
 		LoginPageObject LPO= new LoginPageObject(driver);
-		LPO.userNameEnter().sendKeys("Monika");
-		LPO.passwordEnter().sendKeys("1234");
-		LPO.loginClick().click();
 		
-		SoftAssert s=new SoftAssert();
-		String expected="Please check your username and password. If you still can't log in, contact your Salesforce administrator.";
-		String actual1=LPO.actualText().getText();
-		s.assertEquals(actual1,expected);
-		s.assertAll();
+		LPO.userNameEnter().sendKeys(Constant.username);
+		
+		//CommonUtilities.handleExplicitWaitWebElement(10,LPO.passwordEnter()); //Explicit wait using Webelement
+		LPO.passwordEnter().sendKeys(Constant.password);
+		
+		//CommonUtilities.handleExplicitWaitBy(10,LPO.login); //Explicit wait using By,make by element as public
+		LPO.loginClick().click();
+
+		//Assertion method
+		CommonUtilities.handleAssertion(Constant.expected,LPO.actualText().getText());
 		
 	}
 }
