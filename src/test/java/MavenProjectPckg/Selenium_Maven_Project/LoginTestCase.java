@@ -17,7 +17,7 @@ public class LoginTestCase extends BrowserAccess {
 	public void verifyLogin() throws IOException
 	{
 		
-	///kiyaannnnn branchhhhh//viraj
+	
 		LoginPageObject LPO= new LoginPageObject(driver);
 		
 		LPO.userNameEnter().sendKeys(Constant.username);
